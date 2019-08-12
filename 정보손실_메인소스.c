@@ -1,6 +1,3 @@
-﻿// 정보 손실 최소화.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
 #include "pch.h"
 #include <stdio.h>
 #include <Windows.h>
@@ -66,7 +63,7 @@ double DataCalculate(char arr[], int len)
 	for (int i = 0; (arr[i] != 0) && i < 100; i++) {//각각의 글자가 문자열에서 얼마나 반복되고 있는지 확인
 		for (int k = 0; k < j; k++) {
 			if (data[0][k] == arr[i]) {//같은 글자가 있었는지 확인/넘어가기
-				goto SAMECHAR;//문제없음
+				goto SAMECHAR;
 			}
 		}
 		data[0][j] = arr[i]; //받아오기
@@ -79,7 +76,7 @@ double DataCalculate(char arr[], int len)
 	SAMECHAR:;
 	}
 	double H = 0; double px[100];//NaN오류: 계산 불가능한 값을 입력받음
-	for (int i = 0; i<j; i++) {//여기 검사 항이 잘못 되어있었음
+	for (int i = 0; i<j; i++) {//여기 검사 항이 잘못 되어있었음 해결 완료
 		px[i] = data[1][i] / (double)len;
 		H -= (px[i] * (log10(px[i]) / log10(2)));
 	}
